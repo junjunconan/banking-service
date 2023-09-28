@@ -17,7 +17,6 @@ describe Application::Commands::Transfer do
       expect(data_parser).to receive(:parse).and_return(transactions)
       expect(banking_service).to receive(:transfer_funds).with(transaction_1).once.and_return([transaction_1])
       expect(banking_service).to receive(:transfer_funds).with(transaction_2).once.and_return([false, 'error'])
-
       expect(subject.execute).to eq [transaction_1]
     end
   end

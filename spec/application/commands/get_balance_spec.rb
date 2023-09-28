@@ -14,7 +14,7 @@ describe Application::Commands::GetBalance do
     context 'account not found' do
       let(:account_number) { '1234567890123456' }
 
-      it do
+      it 'should return nil' do
         expect(repository).to receive(:find_by).with(account_number: account_number).and_return(nil)
         expect(subject.execute).to be_nil
       end
@@ -23,7 +23,7 @@ describe Application::Commands::GetBalance do
     context 'success' do
       let(:account_number) { '1111234522226789' }
 
-      it do
+      it 'should return the account balance' do
         expect(repository).to receive(:find_by).with(account_number: account_number).and_return(bank_account)
         expect(subject.execute).to eq balance
       end

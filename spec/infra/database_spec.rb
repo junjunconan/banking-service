@@ -42,7 +42,7 @@ describe Infra::Database do
 
     before { database.bank_accounts << { uuid: 'uuid' } }
 
-    it 'should updates the record' do
+    it 'should update the record' do
       database.update_record(attrs, :bank_accounts)
       expect(database.bank_accounts).to eq [attrs]
     end
