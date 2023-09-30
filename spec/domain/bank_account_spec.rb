@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Domains::BankAccount do
+describe Domain::BankAccount do
   let(:uuid) { 'uuid' }
   let(:account_number) { '1111234522226789' }
   let(:balance) { 500000 }
@@ -11,14 +11,14 @@ describe Domains::BankAccount do
     let(:csv_row) { [account_number, '5000.00'] }
 
     it 'should be initialized with account_number and balance' do
-      bank_account = Domains::BankAccount.initialize_from_csv(csv_row)
+      bank_account = Domain::BankAccount.initialize_from_csv(csv_row)
 
       expect(bank_account.account_number).to eq account_number
       expect(bank_account.balance).to eq 500000
     end
   end
 
-  subject { Domains::BankAccount.new(uuid: uuid, account_number: account_number, balance: balance) }
+  subject { Domain::BankAccount.new(uuid: uuid, account_number: account_number, balance: balance) }
 
   describe '#new_record?' do
     context 'new record' do

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Domains::Transaction do
+describe Domain::Transaction do
   let(:uuid) { 'uuid' }
   let(:from_account) { '1111234522226789' }
   let(:to_account) { '1234567890123456' }
@@ -12,7 +12,7 @@ describe Domains::Transaction do
     let(:csv_row) { [from_account, to_account, '5000.00'] }
 
     it 'should be initialized with from_account, to_account and amount' do
-      transaction = Domains::Transaction.initialize_from_csv(csv_row)
+      transaction = Domain::Transaction.initialize_from_csv(csv_row)
 
       expect(transaction.from_account).to eq from_account
       expect(transaction.to_account).to eq to_account
@@ -21,7 +21,7 @@ describe Domains::Transaction do
   end
 
   describe '#new_record?' do
-    subject { Domains::Transaction.new(uuid: uuid, from_account: from_account, to_account: to_account, amount: amount) }
+    subject { Domain::Transaction.new(uuid: uuid, from_account: from_account, to_account: to_account, amount: amount) }
 
     context 'new record' do
       let(:uuid) { nil }

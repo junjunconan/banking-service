@@ -15,7 +15,7 @@ describe Application::CsvParser do
       end
     end
     
-    it_behaves_like 'initialize domain objects from csv', model: Domains::BankAccount
-    it_behaves_like 'initialize domain objects from csv', model: Domains::Transaction
+    it_behaves_like 'initialize domain objects from csv', model: Domain::BankAccount
+    it_behaves_like 'initialize domain objects from csv', model: Domain::Transaction
   end
 end

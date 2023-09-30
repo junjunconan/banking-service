@@ -9,8 +9,8 @@ describe Application::Commands::Transfer do
   subject { Application::Commands::Transfer.new(data_parser: data_parser, banking_service: banking_service) }
 
   describe '#execute' do
-    let(:transaction_1) { double('Domains::Transaction') }
-    let(:transaction_2) { double('Domains::Transaction') }
+    let(:transaction_1) { double('Domain::Transaction') }
+    let(:transaction_2) { double('Domain::Transaction') }
     let(:transactions) { [transaction_1, transaction_2] }
 
     it do

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Domains
+module Domain
   class BankAccount
     attr_accessor :uuid, :account_number, :balance, :errors
 

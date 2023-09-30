@@ -6,7 +6,7 @@ describe Infra::Repositories::TransactionRepository do
   let(:from_account) { '1111234522226789' }
   let(:to_account) { '1234567890123456' }
   let(:amount) { 500000 }
-  let(:transaction) { Domains::Transaction.new(from_account: from_account, to_account: to_account, amount: amount) }
+  let(:transaction) { Domain::Transaction.new(from_account: from_account, to_account: to_account, amount: amount) }
 
   subject { Infra::Repositories::TransactionRepository.new }
 
@@ -39,7 +39,7 @@ describe Infra::Repositories::TransactionRepository do
     end
 
     context 'save a record but not found in database' do
-      let(:transaction) { Domains::Transaction.new(uuid: 'wrong_uuid', from_account: from_account, to_account: to_account, amount: amount) }
+      let(:transaction) { Domain::Transaction.new(uuid: 'wrong_uuid', from_account: from_account, to_account: to_account, amount: amount) }
 
       it 'should raise an error' do
         expect { subject.save(transaction) }.to raise_error(StandardError, 'Record not found')

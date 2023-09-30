@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Infra::Repositories::BankAccountRepository do
   let(:account_number) { '1111234522226789' }
   let(:balance) { 500000 }
-  let(:bank_account) { Domains::BankAccount.new(account_number: account_number, balance: balance) }
+  let(:bank_account) { Domain::BankAccount.new(account_number: account_number, balance: balance) }
 
   subject { Infra::Repositories::BankAccountRepository.new }
 
@@ -36,7 +36,7 @@ describe Infra::Repositories::BankAccountRepository do
     end
 
     context 'save a record but not found in database' do
-      let(:bank_account) { Domains::BankAccount.new(uuid: 'wrong_uuid', account_number: account_number, balance: balance) }
+      let(:bank_account) { Domain::BankAccount.new(uuid: 'wrong_uuid', account_number: account_number, balance: balance) }
 
       it 'should raise an error' do
         expect { subject.save(bank_account) }.to raise_error(StandardError, 'Record not found')

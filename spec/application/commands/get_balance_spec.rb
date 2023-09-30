@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Application::Commands::GetBalance do
   let(:balance) { 500000 }
-  let(:bank_account) { double('Domains::BankAccount', account_number: '1111234522226789', balance: balance) }
+  let(:bank_account) { double('Domain::BankAccount', account_number: '1111234522226789', balance: balance) }
   let(:repository) { double('Infra::Repositories::BankAccountRepository') }
   let(:account_number) { nil }
 

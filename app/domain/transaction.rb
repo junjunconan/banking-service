@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Domains
+module Domain
   class Transaction
     attr_accessor :uuid, :from_account, :to_account, :amount, :errors
 

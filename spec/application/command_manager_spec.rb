@@ -10,7 +10,7 @@ describe Application::CommandManager do
   describe '#parse' do
     context 'loadaccounts command' do
       it do
-        expect(Application::CsvParser).to receive(:new).with(file_path: 'file_path', model: Domains::BankAccount).and_return(data_parser)
+        expect(Application::CsvParser).to receive(:new).with(file_path: 'file_path', model: Domain::BankAccount).and_return(data_parser)
         expect(Application::Commands::LoadAccounts).to receive(:new).with(data_parser: data_parser)
 
         subject.parse('loadaccounts file_path')
@@ -27,7 +27,7 @@ describe Application::CommandManager do
 
     context 'transfer command' do
       it do
-        expect(Application::CsvParser).to receive(:new).with(file_path: 'file_path', model: Domains::Transaction).and_return(data_parser)
+        expect(Application::CsvParser).to receive(:new).with(file_path: 'file_path', model: Domain::Transaction).and_return(data_parser)
         expect(Application::Commands::Transfer).to receive(:new).with(data_parser: data_parser)
 
         subject.parse('transfer file_path')

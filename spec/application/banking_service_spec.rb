@@ -6,11 +6,11 @@ describe Application::BankingService do
   let(:from_account) { '1111234522226789' }
   let(:to_account) { '1234567890123456' }
   let(:amount) { 500000 }
-  let(:transaction) { Domains::Transaction.new(from_account: from_account, to_account: to_account, amount: amount) }
+  let(:transaction) { Domain::Transaction.new(from_account: from_account, to_account: to_account, amount: amount) }
   let(:bank_account_repository) { double('Infra::Repositories::BankAccountRepository') }
   let(:transaction_repository) { double('Infra::Repositories::TransactionRepository') }
-  let(:mock_from_account) { double('Domains::BankAccount') }
-  let(:mock_to_account) { double('Domains::BankAccount') }
+  let(:mock_from_account) { double('Domain::BankAccount') }
+  let(:mock_to_account) { double('Domain::BankAccount') }
 
   subject { Application::BankingService.new(bank_account_repository: bank_account_repository, transaction_repository: transaction_repository) }
 

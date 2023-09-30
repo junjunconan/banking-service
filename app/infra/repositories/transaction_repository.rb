@@ -21,7 +21,7 @@ module Infra
                    @db.update_record(attrs_to_save, :transactions)
                  end
         
-        Domains::Transaction.new(result) unless result.nil?
+        Domain::Transaction.new(result) unless result.nil?
       end
     end
   end

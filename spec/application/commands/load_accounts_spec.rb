@@ -9,8 +9,8 @@ describe Application::Commands::LoadAccounts do
   subject { Application::Commands::LoadAccounts.new(data_parser: data_parser, repository: repository) }
 
   describe '#execute' do
-    let(:bank_account_1) { double('Domains::BankAccount', valid?: true) }
-    let(:bank_account_2) { double('Domains::BankAccount', valid?: false, errors: ['error']) }
+    let(:bank_account_1) { double('Domain::BankAccount', valid?: true) }
+    let(:bank_account_2) { double('Domain::BankAccount', valid?: false, errors: ['error']) }
     let(:bank_accounts) { [bank_account_1, bank_account_2] }
 
     it do

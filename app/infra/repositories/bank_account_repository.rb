@@ -20,12 +20,12 @@ module Infra
                    @db.update_record(attrs_to_save, :bank_accounts)
                  end
 
-        Domains::BankAccount.new(result) unless result.nil?
+        Domain::BankAccount.new(result) unless result.nil?
       end
 
       def find_by(attrs)
         result = @db.find_record_by(attrs, :bank_accounts)
-        Domains::BankAccount.new(result) unless result.nil?
+        Domain::BankAccount.new(result) unless result.nil?
       end
     end
   end
